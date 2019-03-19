@@ -31,7 +31,7 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: pair-goal-travis 
-    key: deploy.zip
+    key: pair-goal-api.zip
     bundle_type: zip
     application: travis-codeDeploy-service
     deployment_group: travis-codeDeploy-group
