@@ -6,8 +6,8 @@ install:
   - bundle install
 
 deploy:
-  script: rails test
   - provider: s3
+    script: rails test
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: pair-goal-travis
