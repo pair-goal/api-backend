@@ -11,7 +11,7 @@ before_deploy:
   - if ["$TRAVIS_PULL_REQUEST" == "true"]; then exit 0; fi
   - zip -r pair-goal-api *
   - mkdir -p deploy
-  - mv pair-goal-api deploy/pair-goal-api.zip
+  - mv pair-goal-api.zip deploy/pair-goal-api.zip
 
 deploy:
   - provider: s3
