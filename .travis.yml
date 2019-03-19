@@ -5,9 +5,17 @@ rvm:
 install:
   - bundle install
 
+script: rails test
+
+before_deploy:
+  - if ! [["$TRAVIS_PULL_REQUEST" == "true"]]; then exit 0; fi
+  - zip -r pair-goal-api *
+  - mkdir -p deploy
+  - mv pair-goal-api deploy/pair-goal-api.zip
+
 deploy:
   - provider: s3
-    script: rails test
+    local_dir: deploy
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: pair-goal-travis
