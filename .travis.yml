@@ -8,7 +8,7 @@ install:
 script: rails test
 
 before_deploy:
-  - if[["$TRAVIS_PULL_REQUEST" == "true"]]; then exit 0; fi
+  - if ["$TRAVIS_PULL_REQUEST" == "true"]; then exit 0; fi
   - zip -r pair-goal-api *
   - mkdir -p deploy
   - mv pair-goal-api deploy/pair-goal-api.zip
