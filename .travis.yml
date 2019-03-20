@@ -2,8 +2,10 @@ language: ruby
 rvm:
   - 2.5.3
 
+script: mkdir gem
+
 install:
-  - bundle install
+  - bundle install --path ./gem
 
 script: rails test
 

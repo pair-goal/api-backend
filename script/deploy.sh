@@ -10,6 +10,4 @@ if [ "$(docker images -q)" != "" ]; then
 fi
 
 docker build -t app .
-docker run -p 3000:3000 -d app
-
-docker rmi $(docker images -f "dangling=true" -q)
+docker run -p 3030:3000 -d app
