@@ -2,10 +2,13 @@ language: ruby
 rvm:
   - 2.5.3
 
-script: mkdir gem
+script:
+  - mkdir gem
+  - apt-get update
 
 install:
   - bundle install --path ./gem
+  - apt-get install ruby-railties
 
 script: rails test
 
