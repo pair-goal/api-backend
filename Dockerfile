@@ -1,3 +1,4 @@
+USER root
 FROM ruby:2.5.3
 
 COPY . .
