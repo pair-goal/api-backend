@@ -8,7 +8,9 @@ script:
 install:
   - bundle install --path ./gem
 
-script: bin/rails test
+script:
+  - chmod 755 bin/rails
+  - bin/rails test
 
 before_deploy:
   - if ["$TRAVIS_PULL_REQUEST" == "true"]; then exit 0; fi
