@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cp /home/ubuntu/.env /home/ubuntu/deploy/.env 
 cd /home/ubuntu/deploy
 
 if [ "$(docker ps -a -q)" != "" ]; then
