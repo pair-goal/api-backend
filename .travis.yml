@@ -4,13 +4,11 @@ rvm:
 
 script:
   - mkdir gem
-  - apt-get update
 
 install:
   - bundle install --path ./gem
-  - apt-get install ruby-railties
 
-script: rails test
+script: bin/rails test
 
 before_deploy:
   - if ["$TRAVIS_PULL_REQUEST" == "true"]; then exit 0; fi
