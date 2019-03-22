@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cp /home/ubuntu/.env /home/ubuntu/deploy/.env 
+cp /home/ubuntu/Gemfile /home/ubuntu/deploy/Gemfile
 cd /home/ubuntu/deploy
 
 if [ "$(docker ps -a -q)" != "" ]; then
