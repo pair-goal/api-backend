@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  index: 1
+  user_nickname: one
+  title: MyString
+  category_num: 1
+  start_date: 2019-03-23 14:20:33
+  end_date: 2019-03-23 14:20:33
+  is_doing: false
+  average_score: 9.99
+  image_path: MyString
+  partner_nickname: one
+
+two:
+  index: 1
+  user_nickname: two
+  title: MyString
+  category_num: 1
+  start_date: 2019-03-23 14:20:33
+  end_date: 2019-03-23 14:20:33
+  is_doing: false
+  average_score: 9.99
+  image_path: MyString
+  partner_nickname: two
