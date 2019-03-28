@@ -34,4 +34,11 @@ class UserTest < ActiveSupport::TestCase
     assert !short_password_user.save, "Failed to short password validate"
     assert !long_password_user.save, "Failed to long password validate"
   end
+
+  test "find user test" do
+    user = User.find_by(nickname: "MyString")
+
+    assert_instance_of User, user, "user is not instance of User"
+    assert_equal users(:one).nickname, user.nickname
+  end
 end

@@ -37,8 +37,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.index ["user_nickname"], name: "index_goals_on_user_nickname"
   end
 
-  create_table "users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "nickname"
+  create_table "users", primary_key: "nickname", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "password"
     t.string "image_path"
     t.text "description"

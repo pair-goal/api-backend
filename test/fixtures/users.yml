@@ -7,7 +7,7 @@ one:
   description: MyText
 
 two:
-  nickname: MyString
+  nickname: MyString2
   password: MyString
   image_path: MyString
   description: MyText
