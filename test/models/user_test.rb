@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
     user = User.new({
       nickname: "NoYE",
       password: "abcd1234",
-      description: "안녕하세요 삽질 장인입니다."
+      description: "hello"
     })
 
     assert user.save, "Failed to save"

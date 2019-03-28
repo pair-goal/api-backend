@@ -5,15 +5,15 @@ class Goal < ApplicationRecord
 
   validates :title,
     presence: true,
-    length: { max: 64 }
+    length: { maximum: 64 }
   validates :start_date,
     presence: true
   validates :end_date,
     presence: true
   validates :user_nickname,
     presence: true,
-    length: { max: 20 }
+    length: { maximum: 20 }
   validates :partner_nickname,
     presence: true,
-    length: { max: 20 }
+    length: { maximum: 20 }
 end

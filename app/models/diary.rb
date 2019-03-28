@@ -3,7 +3,7 @@ class Diary < ApplicationRecord
 
   validates :comment,
     presence: true,
-    length: { max: 255 }
+    length: { maximum: 255 }
   validates :score,
     presence: true
 end
