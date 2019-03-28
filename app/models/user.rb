@@ -3,12 +3,12 @@ class User < ApplicationRecord
     ->(user) { unscope(where: :nickname)
     .where("user_nickname_id=? OR partner_nickname_id=?", user.nickname, user.nickname)}
 
-  validate :nickname,
+  validates :nickname,
     presence: true,
     length: { max: 20 }
-  validate :password,
+  validates :password,
     presence: true,
     length: { min: 8, max: 16 }
-  validate :description,
+  validates :description,
     length: { max: 255 }
 end
