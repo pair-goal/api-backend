@@ -1,13 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nickname: MyString
-  password_digest: MyString
-  image_path: MyString
-  description: MyText
-
-two:
-  nickname: MyString2
-  password_digest: MyString
+  nickname: NoYE
+  password_digest: $12$r0J9JsscEiRJa67uLvrpKeaBQYAKBvNag7muf4SKJ57ijd0D76n5a
   image_path: MyString
   description: MyText
