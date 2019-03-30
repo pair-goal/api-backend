@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   test "user valid save" do
     user = User.new({
-      nickname: "NoYE",
+      nickname: "aanoYE",
       password: "abcd1234",
       description: "hello"
     })
@@ -19,13 +19,13 @@ class UserTest < ActiveSupport::TestCase
     })
 
     short_password_user = User.new({
-      nickname: "NoYE",
+      nickname: "nodYE",
       password: "aa",
       description: "hello"
     })
 
     long_password_user = User.new({
-      nickname: "NoYE",
+      nickname: "noYddE",
       password: "abcdefghijklmnopqrstuvwxyz",
       description: "hello"
     })
@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "find user test" do
-    user = User.find_by(nickname: "MyString")
+    user = User.find_by(nickname: "NoYE")
 
     assert_instance_of User, user, "user is not instance of User"
     assert_equal users(:one).nickname, user.nickname

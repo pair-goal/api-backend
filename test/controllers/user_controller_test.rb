@@ -2,25 +2,19 @@ require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
   test "success signup" do
-    post :create, { nickname: "noye", password: "abcd1234" }
+    post '/user/signup', params: { nickname: "aanoye", password: "abcd1234" }, as: :json
 
     assert_response 201
   end
 
-  test "fail signup" do
-    post :create, { nickanme: "noye", password: "abcd"}
+  test "fail signup - short password" do
+    post '/user/signup', params: { nickname: "abnoye", password: "abcd"}, as: :json
 
     assert_response 405
   end
 
-  test "success signin" do
-    post :new, { nickname: "MyString", password: "MyString"}
-    
-    assert_response 200
-  end
-
-  test "fail signin" do
-    post :new, { nickname: "MyString", password: "abcd1234"}
+  test "fail signup - exists nickname" do
+    post '/user/signup', params: { nickname: "NoYE", password: "abcd" }, as: :json
 
     assert_response 405
   end
