@@ -2,12 +2,12 @@
 
 one:
   nickname: MyString
-  password: MyString
+  password_digest: MyString
   image_path: MyString
   description: MyText
 
 two:
   nickname: MyString2
-  password: MyString
+  password_digest: MyString
   image_path: MyString
   description: MyText

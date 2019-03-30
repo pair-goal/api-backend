@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
   end
 
   create_table "users", primary_key: "nickname", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.string "password"
+    t.string "password_digest"
     t.string "image_path"
     t.text "description"
     t.datetime "created_at", null: false

@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/codahale/bcrypt-ruby.git
+  revision: 7644e3684d96fb49f5aa20cb5f547cb1b56b3f38
+  specs:
+    bcrypt (3.1.12)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -191,6 +197,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt!
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
