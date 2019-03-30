@@ -6,6 +6,9 @@ ruby '2.5.3'
 # Bundle dotenv
 gem 'dotenv-rails'
 
+# Bundle rack-cors
+gem 'rack-cors'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use mysql as the database for Active Record
