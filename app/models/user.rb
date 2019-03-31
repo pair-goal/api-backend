@@ -1,14 +1,13 @@
 class User < ApplicationRecord
-  has_many :goals_users, class_name: "Goal",
-    ->(user) { unscope(where: :nickname)
-    .where("user_nickname_id=? OR partner_nickname_id=?", user.nickname, user.nickname)}
+  has_secure_password
+  has_many :goals_users, ->(user) { unscope(where: :nickname).where("user_nickname=? OR partner_nickname=?", user.nickname, user.nickname)}, class_name: "Goal"
 
-  validate :nickname,
+  validates :nickname,
     presence: true,
-    length: { max: 20 }
-  validate :password,
+    length: { maximum: 20 }
+  validates :password,
     presence: true,
-    length: { min: 8, max: 16 }
-  validate :description,
-    length: { max: 255 }
+    length: { minimum: 8, maximum: 16 }
+  validates :description,
+    length: { maximum: 255 }
 end
