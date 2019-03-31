@@ -14,7 +14,7 @@ gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '0.5.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.12.1'
+gem 'puma', '3.12.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '3.1.7'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
