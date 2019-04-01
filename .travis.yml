@@ -6,7 +6,7 @@ script:
   - mkdir gem
 
 install:
-  - bundle install --path ./gem
+  - bundle install --force --path ./gem
 
 script:
   - chmod 755 bin/rails
