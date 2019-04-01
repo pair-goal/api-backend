@@ -7,6 +7,8 @@ script:
 
 install:
   - bundle install --path ./gem
+  - rm -r ./gem/ruby/2.5.0/extensions/x86_64-linux/2.5.0/mysql2-0.5.1
+  - bundle install mysql2
 
 script:
   - gem list
