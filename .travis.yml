@@ -10,6 +10,7 @@ install:
   - bundle install --force --path ./gem
 
 script:
+  - gem list
   - chmod 755 bin/rails
   - bin/rails test
 
