@@ -9,6 +9,9 @@ gem 'dotenv-rails'
 # Bundle rack-cors
 gem 'rack-cors'
 
+# Bundle jwt
+gem 'jwt'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use mysql as the database for Active Record

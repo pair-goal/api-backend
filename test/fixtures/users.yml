@@ -2,6 +2,8 @@
 
 one:
   nickname: NoYE
-  password_digest: $12$r0J9JsscEiRJa67uLvrpKeaBQYAKBvNag7muf4SKJ57ijd0D76n5a
+  password_digest: $2a$12$r0J9JsscEiRJa67uLvrpKeaBQYAKBvNag7muf4SKJ57ijd0D76n5a
   image_path: MyString
   description: MyText
+  created_at: 2019-03-30 12:59:57
+  updated_at: 2019-03-30 12:59:57
