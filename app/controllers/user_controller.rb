@@ -21,7 +21,8 @@ class UserController < ApplicationController
     user = User.find_by(nickname: nickname)
 
     if user && !!user.authenticate(password)
-      render json: {message: 'success'}, status: 200
+      jwt = JsonWebToken.encode({user_id: user[:id]})
+      render json: {message: 'success', token: jwt}, status: 200
     else
       render json: {message: 'error'}, status: 405
     end
