@@ -1,4 +1,4 @@
-FROM ruby:2.5.3
+FROM ruby:2.5.1
 
 RUN apt-get update
 RUN apt-get install default-libmysqlclient-dev

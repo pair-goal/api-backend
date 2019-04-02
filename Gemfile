@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.5.1'
 
 # Bundle dotenv
 gem 'dotenv-rails'
@@ -14,7 +14,7 @@ gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '0.5.2'
 # Use Puma as the app server
-gem 'puma', '3.12.0'
+gem 'puma', '3.12.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -39,7 +39,7 @@ gem 'bcrypt', '3.1.12'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
