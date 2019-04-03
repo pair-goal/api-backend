@@ -5,7 +5,6 @@ class ApplicationController < ActionController::API
     print token
     decoded_token = JsonWebToken.decode(token)
     print "-------------------"
-    print decoded_token["user_id"]
     if decoded_token==false
       head 403
     end
