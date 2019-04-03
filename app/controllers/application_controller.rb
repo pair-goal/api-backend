@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
     decoded_token = JsonWebToken.decode(token)
     
     if decoded_token==false
-      render json: {message: 'error'}, status: 403
+      head 403
     end
   end
 end

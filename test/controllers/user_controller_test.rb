@@ -45,9 +45,21 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
   end
 
+  test "fail get profile - no token" do
+    get '/user/profile'
+
+    assert_response 403
+  end
+
   test "success put profile" do
     put '/user/profile', headers: { "Access-Token" => @@token }, params: { nickname: "NOOOOYE", description: "hello"}, as: :json
   
     assert_response 204
+  end
+
+  test "fail put profile - no token" do
+    put '/user/profile', params: { nickname: "NOOOOYE", description: "hello"}, as: :json
+  
+    assert_response 403
   end
 end
