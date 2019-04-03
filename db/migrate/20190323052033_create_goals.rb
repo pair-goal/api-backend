@@ -5,8 +5,8 @@ class CreateGoals < ActiveRecord::Migration[5.2]
       t.integer :category_num
       t.timestamp :start_date
       t.timestamp :end_date
-      t.boolean :is_doing
-      t.decimal :average_score
+      t.boolean :is_doing, default: true
+      t.decimal :average_score, default: 0
       t.string :image_path
 
       t.timestamps
