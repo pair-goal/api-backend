@@ -10,8 +10,6 @@ class JsonWebToken
     begin
       JWT.decode(token, @@JWT_SECRET)[0]
     rescue JWT::ExpiredSignature, JWT::VerificationError, JWT::DecodeError, JWT::VerificationError => e
-      print "----------exception----------"
-      print e
       false
     end
   end
