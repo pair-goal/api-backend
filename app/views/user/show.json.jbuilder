@@ -1,0 +1,1 @@
+json.extract! @user, :nickname, :image_path, :description

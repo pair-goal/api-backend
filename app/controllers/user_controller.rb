@@ -27,4 +27,16 @@ class UserController < ApplicationController
       render json: {message: 'error'}, status: 405
     end
   end
+
+  def show
+    token = request.headers["Access-Token"]
+    nickname = get_nickname_token(token)["user_id"]
+    @user = User.find_by(nickname: nickname)
+
+    render "show.json", status: 200
+  end
+
+  def get_nickname_token(token)
+    decoded_token = JsonWebToken.decode(token)
+  end
 end
