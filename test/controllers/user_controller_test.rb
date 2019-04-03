@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
+  @@token = JsonWebToken.encode({user_id: User.find_by(nickname: "NoYE")[:id]})
+  
   test "success signup" do
     post '/user/signup', params: { nickname: "aanoye", password: "abcd1234" }, as: :json
 
@@ -35,5 +37,29 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     post '/user/signin', params: { nickname: "NoYE", password: "abcd234d" }, as: :json
 
     assert_response 405
+  end
+
+  test "success get profile" do
+    get '/user/profile', headers: { "Access-Token" => @@token }
+
+    assert_response 200
+  end
+
+  test "fail get profile - no token" do
+    get '/user/profile'
+
+    assert_response 403
+  end
+
+  test "success put profile" do
+    put '/user/profile', headers: { "Access-Token" => @@token }, params: { nickname: "NOOOOYE", description: "hello"}, as: :json
+  
+    assert_response 204
+  end
+
+  test "fail put profile - no token" do
+    put '/user/profile', params: { nickname: "NOOOOYE", description: "hello"}, as: :json
+  
+    assert_response 403
   end
 end
