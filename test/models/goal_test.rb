@@ -12,4 +12,11 @@ class GoalTest < ActiveSupport::TestCase
 
     assert goal.save, "Failed to save"
   end
+
+  test "find goal test" do
+    goal = Goal.where(title: "MyString").first
+
+    assert_instance_of Goal, goal, "goal is not instance of Goal"
+    assert_equal goals(:one).title, goal.title
+  end
 end
