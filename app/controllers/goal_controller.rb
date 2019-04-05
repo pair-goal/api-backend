@@ -6,6 +6,8 @@ class GoalController < ApplicationController
     doing = doing == "true" ? true : false
 
     @goals = Goal.where(is_doing: doing).offset(offset).limit(limit)
+
+    render "index.json", status: 200
   end
 
   def create
@@ -28,6 +30,7 @@ class GoalController < ApplicationController
   end
 
   def show
+    id = params[:id]
   end
 
   def update

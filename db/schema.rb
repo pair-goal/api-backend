@@ -26,8 +26,14 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.integer "category_num"
     t.timestamp "start_date"
     t.timestamp "end_date"
-    t.boolean "is_doing"
-    t.decimal "average_score", precision: 10
+    t.boolean "is_doing", default: true
+    t.decimal "average_score", precision: 10, default: "0"
+    t.integer "zero_score", default: 0
+    t.integer "one_score", default: 0
+    t.integer "two_score", default: 0
+    t.integer "three_score", default: 0
+    t.integer "four_score", default: 0
+    t.integer "five_score", default: 0
     t.string "image_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

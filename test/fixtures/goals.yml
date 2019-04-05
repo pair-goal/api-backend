@@ -9,6 +9,12 @@ one:
   end_date: 2019-03-23 14:20:33
   is_doing: false
   average_score: 9.99
+  zero_score: 1
+  one_score: 1
+  two_score: 1
+  three_score: 1
+  four_score: 1
+  five_score: 1
   image_path: MyString
   partner_nickname: one
 
@@ -20,6 +26,12 @@ two:
   start_date: 2019-03-23 14:20:33
   end_date: 2019-03-23 14:20:33
   is_doing: false
+  zero_score: 1
+  one_score: 1
+  two_score: 1
+  three_score: 1
+  four_score: 1
+  five_score: 1
   average_score: 9.99
   image_path: MyString
   partner_nickname: two
