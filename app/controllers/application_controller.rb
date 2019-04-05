@@ -6,4 +6,9 @@ class ApplicationController < ActionController::API
       head 403
     end
   end
+
+  def get_nickname_from_token
+    token = request.headers["Access-Token"]
+    JsonWebToken.decode(token)["user_id"]
+  end
 end

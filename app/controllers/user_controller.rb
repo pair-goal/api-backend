@@ -44,9 +44,4 @@ class UserController < ApplicationController
 
     head 204
   end
-
-  def get_nickname_from_token
-    token = request.headers["Access-Token"]
-    JsonWebToken.decode(token)["user_id"]
-  end
 end
