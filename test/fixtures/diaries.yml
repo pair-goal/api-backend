@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  goal_id: one
+  id: 1
+  goal_id: 1
   comment: MyText
   score: 1
 
 two:
-  goal_id: two
+  id: 2
+  goal_id: 1
   comment: MyText
   score: 2
