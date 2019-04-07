@@ -1,6 +1,6 @@
 class Goal < ApplicationRecord
-  belongs_to :user_nickname_id, class_name: "User", foreign_key: "user_nickname"
-  belongs_to :partner_nickname_id, class_name: "User", foreign_key: "partner_nickname"
+  belongs_to :user_id, class_name: "User", foreign_key: "user_id"
+  belongs_to :partner_id, class_name: "User", foreign_key: "partner_id", optional: true
   has_many :diarys, class_name: "Diary", foreign_key: "goal_id"
 
   validates :title,
@@ -10,10 +10,4 @@ class Goal < ApplicationRecord
     presence: true
   validates :end_date,
     presence: true
-  validates :user_nickname,
-    presence: true,
-    length: { maximum: 20 }
-  validates :partner_nickname,
-    presence: true,
-    length: { maximum: 20 }
 end

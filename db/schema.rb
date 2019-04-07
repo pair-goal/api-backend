@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_03_23_052213) do
 
-  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
     t.integer "score"
     t.datetime "created_at", null: false
@@ -21,23 +21,30 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.index ["goal_id"], name: "index_diaries_on_goal_id"
   end
 
-  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.integer "category_num"
     t.timestamp "start_date"
     t.timestamp "end_date"
-    t.boolean "is_doing"
-    t.decimal "average_score", precision: 10
+    t.boolean "is_doing", default: true
+    t.decimal "average_score", precision: 10, default: "0"
+    t.integer "zero_score", default: 0
+    t.integer "one_score", default: 0
+    t.integer "two_score", default: 0
+    t.integer "three_score", default: 0
+    t.integer "four_score", default: 0
+    t.integer "five_score", default: 0
     t.string "image_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_nickname"
-    t.bigint "partner_nickname"
-    t.index ["partner_nickname"], name: "index_goals_on_partner_nickname"
-    t.index ["user_nickname"], name: "index_goals_on_user_nickname"
+    t.bigint "user_id"
+    t.bigint "partner_id"
+    t.index ["partner_id"], name: "index_goals_on_partner_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
-  create_table "users", primary_key: "nickname", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname"
     t.string "password_digest"
     t.string "image_path"
     t.text "description"

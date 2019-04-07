@@ -2,24 +2,36 @@
 
 one:
   id: 1
-  user_nickname: one
+  user_id: 1
   title: MyString
   category_num: 1
   start_date: 2019-03-23 14:20:33
   end_date: 2019-03-23 14:20:33
   is_doing: false
   average_score: 9.99
+  zero_score: 1
+  one_score: 1
+  two_score: 1
+  three_score: 1
+  four_score: 1
+  five_score: 1
   image_path: MyString
-  partner_nickname: one
+  partner_id: 1
 
 two:
   id: 2
-  user_nickname: two
+  user_id: 1
   title: MyString
   category_num: 1
   start_date: 2019-03-23 14:20:33
   end_date: 2019-03-23 14:20:33
   is_doing: false
+  zero_score: 1
+  one_score: 1
+  two_score: 1
+  three_score: 1
+  four_score: 1
+  five_score: 1
   average_score: 9.99
   image_path: MyString
-  partner_nickname: two
+  partner_id: 1

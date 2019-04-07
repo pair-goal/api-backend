@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
-  @@token = JsonWebToken.encode({user_id: User.find_by(nickname: "NoYE")[:id]})
+  @@token = JsonWebToken.encode({user_id: User.where(nickname: "NoYE").first[:id]})
   
   test "success signup" do
     post '/user/signup', params: { nickname: "aanoye", password: "abcd1234" }, as: :json

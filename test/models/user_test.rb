@@ -36,9 +36,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "find user test" do
-    user = User.find_by(nickname: "NoYE")
+    user = User.where(id: 1).first
 
     assert_instance_of User, user, "user is not instance of User"
-    assert_equal users(:one).nickname, user.nickname
+    assert_equal users(:one).id, user.id
   end
 end
