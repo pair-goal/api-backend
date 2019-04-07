@@ -3,11 +3,15 @@
 one:
   id: 1
   goal_id: 1
+  pre_id: 1
+  next_id: 1
   comment: MyText
   score: 1
 
 two:
   id: 2
   goal_id: 1
+  pre_id: 1
+  next_id: 1
   comment: MyText
   score: 2
