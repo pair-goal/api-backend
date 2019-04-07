@@ -16,7 +16,7 @@ class GoalController < ApplicationController
 
     goal = Goal.new({
       title: title,
-      user_nickname: User.where(nickname: get_nickname_from_token).first,
+      user_id: User.where(id: get_id_from_token).first,
       category_num: category,
       start_date: start_date,
       end_date: end_date
@@ -31,6 +31,9 @@ class GoalController < ApplicationController
 
   def show
     id = params[:id]
+    @goal = Goal.where(id: id).first
+
+    render "show.json", status: 200
   end
 
   def update

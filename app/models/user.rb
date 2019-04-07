@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :goals_users, ->(user) { unscope(where: :nickname).where("user_nickname=? OR partner_nickname=?", user.nickname, user.nickname)}, class_name: "Goal"
+  has_many :goals_users, ->(user) { unscope(where: :id).where("user_id=? OR partner_id=?", user.id, user.id)}, class_name: "Goal"
 
   validates :nickname,
     presence: true,

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def get_nickname_from_token
+  def get_id_from_token
     token = request.headers["Access-Token"]
     JsonWebToken.decode(token)["user_id"]
   end

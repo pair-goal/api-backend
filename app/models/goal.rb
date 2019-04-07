@@ -1,6 +1,6 @@
 class Goal < ApplicationRecord
-  belongs_to :user_nickname, class_name: "User", foreign_key: "user_nickname"
-  belongs_to :partner_nickname, class_name: "User", foreign_key: "partner_nickname", optional: true
+  belongs_to :user_id, class_name: "User", foreign_key: "user_id"
+  belongs_to :partner_id, class_name: "User", foreign_key: "partner_id", optional: true
   has_many :diarys, class_name: "Diary", foreign_key: "goal_id"
 
   validates :title,

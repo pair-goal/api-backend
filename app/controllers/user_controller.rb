@@ -5,6 +5,11 @@ class UserController < ApplicationController
     params.require(:user).permit(:nickname, :password)
     nickname, password = params.values_at :nickname, :password
 
+    if(User.exists?(nickname: nickname))
+      head 405
+      return
+    end
+
     user = User.new({
       nickname: nickname,
       password: password
@@ -23,7 +28,7 @@ class UserController < ApplicationController
     user = User.find_by(nickname: nickname)
 
     if user && !!user.authenticate(password)
-      @jwt = JsonWebToken.encode({user_id: user[:id]})
+      @token = JsonWebToken.encode({user_id: user[:id]})
       render "new.json", status: 200
     else
       head 405
@@ -31,8 +36,8 @@ class UserController < ApplicationController
   end
 
   def show
-    nickname = get_nickname_from_token
-    @user = User.where(nickname: nickname).first
+    id = get_id_from_token
+    @user = User.where(id: id).first
 
     render "show.json", status: 200
   end
@@ -40,7 +45,7 @@ class UserController < ApplicationController
   def update
     params.require(:user).permit(:nickname, :description)
     nickname, description = params.values_at :nickname, :description
-    User.where(nickname: get_nickname_from_token).update_all(nickname: nickname, description: description)
+    User.where(id: get_id_from_token).update_all(nickname: nickname, description: description)
 
     head 204
   end

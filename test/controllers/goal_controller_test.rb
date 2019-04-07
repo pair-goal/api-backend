@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class GoalControllerTest < ActionDispatch::IntegrationTest
-  @@token = JsonWebToken.encode({user_id: User.find_by(nickname: "NoYE")[:id]})
+  @@token = JsonWebToken.encode({user_id: 1})
 
   test "success get goal" do
     get '/goal', headers: { "Access-Token" => @@token }
@@ -22,7 +22,7 @@ class GoalControllerTest < ActionDispatch::IntegrationTest
       as: :json,
       headers: { "Access-Token" => @@token }
 
-    assert_response 204
+    assert_response 201
   end
 
   test "fail post goal - no token" do
