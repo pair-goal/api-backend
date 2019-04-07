@@ -37,6 +37,14 @@ class GoalController < ApplicationController
   end
 
   def update
+    id, title, category, start_date, end_date = params.values_at :id, :title, :category, :startDate, :endDate
+    goal = Goal.where(id: id).first
+
+    if(goal.update({title: title, category_num: category, start_date: start_date, end_date: end_date}))
+      head 204
+    else
+      head 405
+    end
   end
 
   def destroy
