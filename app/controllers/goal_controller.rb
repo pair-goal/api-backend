@@ -48,5 +48,13 @@ class GoalController < ApplicationController
   end
 
   def destroy
+    id = params[:id]
+    goal = Goal.where(id: id).first
+
+    if(goal.destroy)
+      head 204
+    else
+      head 405
+    end
   end
 end
