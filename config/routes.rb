@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get '/goal/:id' => 'goal#show'
   put '/goal/:id' => 'goal#update'
   delete '/goal/:id' => 'goal#destroy'
+
+  get '/diary/:id' => 'diary#show'
+  put '/diary/:id' => 'diary#update'
 end
