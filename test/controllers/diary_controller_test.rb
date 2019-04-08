@@ -16,13 +16,16 @@ class DiaryControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "test success put diary" do
-    put '/diary/1', headers: { "Access-Token" => @@token }
+    put '/diary/1',
+    params: { score: 0, comment: "yes!" },
+    as: :json, headers: { "Access-Token" => @@token }
 
     assert_response 204
   end
 
   test "test fail put diary - no token" do
-    put '/diary/1'
+    put '/diary/1',
+    params: { score: 0, comment: "yes!" }, as: :json
 
     assert_response 403
   end
