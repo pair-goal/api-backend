@@ -1,0 +1,11 @@
+default:
+  port: 6379
+
+test:
+  host: 'localhost'
+
+development:
+  host: 'localhost'
+
+production:
+  host: 'nye-redis.9bmxon.ng.0001.apn2.cache.amazonaws.com'
