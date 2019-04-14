@@ -8,6 +8,9 @@ script:
 install:
   - bundle install --path ./gem
 
+services:
+  - redis-server
+
 script:
   - gem list
   - chmod 755 bin/rails

@@ -12,6 +12,12 @@ gem 'rack-cors'
 # Bundle jwt
 gem 'jwt'
 
+# Bundle sidekiq
+gem 'sidekiq'
+
+# Bundle sidekiq-cron
+gem 'sidekiq-cron'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use mysql as the database for Active Record
@@ -31,7 +37,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '3.1.12'
 
