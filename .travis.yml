@@ -8,8 +8,8 @@ script:
 install:
   - bundle install --path ./gem
 
-service:
-  - redis-server
+before_script:
+  - redis-server /etc/redis/redis.conf --port 6379
 
 script:
   - gem list
