@@ -9,7 +9,7 @@ install:
   - bundle install --path ./gem
 
 before_script:
-  - redis-server /etc/redis/redis.conf --port 6379 --requirepass 'secret'
+  - sudo redis-server /etc/redis/redis.conf --port 6379 --requirepass 'secret'
 
 script:
   - gem list
