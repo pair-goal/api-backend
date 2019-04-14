@@ -2,10 +2,10 @@ default:
   port: 6379
 
 test:
-  host: 'localhost'
+  host: '127.0.0.1'
 
 development:
-  host: 'localhost'
+  host: '127.0.0.1'
 
 production:
   host: 'nye-redis.9bmxon.ng.0001.apn2.cache.amazonaws.com'
