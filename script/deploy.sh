@@ -13,5 +13,3 @@ fi
 
 docker build -t app-api .
 docker run -p 3030:3000 -d app-api
-
-rm -r /home/ubuntu/api-deploy
