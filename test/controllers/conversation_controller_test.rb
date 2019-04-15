@@ -30,7 +30,7 @@ class ConversationControllerTest < ActionDispatch::IntegrationTest
 
   test "success post conversation" do
     post '/conversation/1',
-      params: { content: "chicken" }
+      params: { content: "chicken" },
       headers: { "Access-Token" => @@token }
 
     assert_response 204
@@ -39,6 +39,6 @@ class ConversationControllerTest < ActionDispatch::IntegrationTest
   test "fail post conversation - no token" do
     post '/conversation/1', params: { content: "chicken" }
 
-    assert_response 204
+    assert_response 403
   end
 end
