@@ -12,4 +12,9 @@ Rails.application.routes.draw do
 
   get '/diary/:id' => 'diary#show'
   put '/diary/:id' => 'diary#update'
+
+  get '/conversation' => 'conversation#index'
+  get '/conversation/:id' => 'conversation#show'
+  post '/conversation/:id' => 'conversation#new'
+  get '/conversation/message/:id' => 'conversation#message'
 end
