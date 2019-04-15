@@ -7,5 +7,5 @@ COPY . .
 RUN bundle install --path ./gem
 
 EXPOSE 3000
+CMD ["bundle" "exec", "sidekiq", "-d"]
 CMD ["bundle", "exec", "bin/rails", "s", "-b", "0.0.0.0"]
-CMD ["bundle" "exec", "sidekiq"]
