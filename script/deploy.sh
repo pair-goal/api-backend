@@ -12,4 +12,4 @@ if [ "$(docker images | grep "app-api")" != "" ]; then
 fi
 
 sudo docker build -t app-api .
-sudo docker run -p 3030:3000 -d app-api --name="app-api"
+sudo docker run -p 3030:3000 -d app-api
