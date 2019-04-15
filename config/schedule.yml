@@ -1,4 +1,4 @@
-matching_job:
+matching_worker:
   name: "matching_worker"
   cron: "0 1 * * *"
   class: "MatchingWorker"
