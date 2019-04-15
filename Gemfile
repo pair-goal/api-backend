@@ -19,7 +19,7 @@ gem 'sidekiq'
 gem 'sidekiq-cron'
 
 # Bunblde mongoid
-gem 'mongoid'
+gem 'mongo'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
