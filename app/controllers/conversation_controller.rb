@@ -19,7 +19,17 @@ class ConversationController < ApplicationController
   end
 
   def new
+    id, content = params.values_at :id, :content
+    nickname = User.where(id: get_id_from_token).first.nickname
+    data = {id: id, content: content, nickname: nickname}.to_json
+
+    sub = $redis.publish 'sendMessage', data
     
+    if sub>0
+      head 201
+    else
+      head 405
+    end
   end
 
   def message
