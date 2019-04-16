@@ -23,21 +23,21 @@ class ConversationControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "fail get conversation details - no token" do
-    get '/conversation/1'
+    get '/conversation/5cb3144b5773ef22dc0104de'
 
     assert_response 403
   end
 
   test "success post conversation" do
-    post '/conversation/1',
+    post '/conversation/5cb3144b5773ef22dc0104de',
       params: { content: "chicken" },
       headers: { "Access-Token" => @@token }
 
-    assert_response 204 or 405
+    assert_response 405
   end
 
   test "fail post conversation - no token" do
-    post '/conversation/1', params: { content: "chicken" }
+    post '/conversation/5cb3144b5773ef22dc0104de', params: { content: "chicken" }
 
     assert_response 403
   end
