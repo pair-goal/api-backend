@@ -12,7 +12,10 @@ class ConversationController < ApplicationController
   end
 
   def show
+    id, offset, limit = params.values_at :id, :offset, :limit
+    @messages = $messageDoc.find(_id: BSON::ObjectId(id)).skip(offset.to_i).limit(limit.to_i)
     
+    render "show.json", status: 200
   end
 
   def new
