@@ -26,7 +26,7 @@ class ConversationController < ApplicationController
     sub = $redis.publish 'sendMessage', data
     
     if sub>0
-      head 201
+      head 204
     else
       head 405
     end
