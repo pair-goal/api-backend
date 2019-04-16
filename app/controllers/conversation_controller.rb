@@ -33,6 +33,16 @@ class ConversationController < ApplicationController
   end
 
   def message
-    
+    id = params[:id]
+    $redis.select 2
+    message_content, message_at = $redis.hmget(id, 'content', 'created_at')
+
+    unless message_content and message_at
+      message = $messageDoc.find(_id: BSON::ObjectId.from_string(id)).first
+      message_content = message['content']
+      message_at = message['created_at']
+    end
+
+    render status: 200, json: {content: message_content, at: message_at}
   end
 end
