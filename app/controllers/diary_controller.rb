@@ -2,8 +2,8 @@ class DiaryController < ApplicationController
   before_action :auth_user
 
   def show
-    id = params[:id]
-    @diary = Diary.where(id: id).first
+    goal_id, date = params.values_at :goal_id, :date
+    @diary = Diary.where(goal_id: goal_id, created_at: Date.today..Date.today).first
 
     render "show.json", status: 200
   end
@@ -17,8 +17,8 @@ class DiaryController < ApplicationController
       return
     end
 
-    if(Diary.exists?(goal_id: goal))
-      diary = Diary.where(goal_id: goal_id).first
+    if(Diary.exists?(goal_id: goal, created_at: Date.today..Date.today))
+      diary = Diary.where(goal_id: goal_id, created_at: Date.today..Date.today).first
 
       if(diary.update({score: score, comment: comment}))
         head 201
