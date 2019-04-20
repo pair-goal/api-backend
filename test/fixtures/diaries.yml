@@ -7,6 +7,8 @@ one:
   next_id: 1
   comment: MyText
   score: 1
+  created_at: 2019-04-07 14:29:50
+  updated_at: 2019-04-07 14:29:50
 
 two:
   id: 2
@@ -15,3 +17,5 @@ two:
   next_id: 1
   comment: MyText
   score: 2
+  created_at: 2019-04-07 14:29:50
+  updated_at: 2019-04-07 14:29:50
