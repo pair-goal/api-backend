@@ -2,29 +2,31 @@ require 'test_helper'
 
 class DiaryControllerTest < ActionDispatch::IntegrationTest
   @@token = JsonWebToken.encode({user_id: 1})
+  @@today = Date.today.strftime("%Y%m%d")
 
   test "test success get diary" do
-    get '/diary/1', headers: { "Access-Token" => @@token }
+    get "/goal/1/diary/#{@@today}", headers: { "Access-Token" => @@token }
 
-    assert_response 200
+    assert_response 206
   end
 
   test "test fail get diary - no token" do
-    get '/diary/1'
+    get "/goal/1/diary/#{@@today}"
 
     assert_response 403
   end
 
   test "test success put diary" do
-    put '/diary/1',
+    put "/goal/1/diary/#{@@today}",
     params: { score: 0, comment: "yes!" },
-    as: :json, headers: { "Access-Token" => @@token }
+    as: :json,
+    headers: { "Access-Token" => @@token }
 
-    assert_response 204
+    assert_response 201
   end
 
   test "test fail put diary - no token" do
-    put '/diary/1',
+    put "/goal/1/diary/#{@@today}",
     params: { score: 0, comment: "yes!" }, as: :json
 
     assert_response 403
