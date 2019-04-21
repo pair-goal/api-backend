@@ -3,6 +3,7 @@ class CreateDiaries < ActiveRecord::Migration[5.2]
     create_table :diaries do |t|
       t.text :comment
       t.integer :score
+      t.string :date
 
       t.timestamps
     end

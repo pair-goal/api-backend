@@ -3,7 +3,7 @@
 one:
   id: 1
   nickname: NoYE
-  password_digest: $2a$10$9tb71Uu.d0vrVY00/lCfeebERhWlYWk50ro6SPs45KPjH5lV2PvC.
+  password_digest: $2a$10$asnMA0tu9nVbXV6yZJwb3.eFKkoe8RnjeCiF3NS1HAAcMqoWayrWG
   image_path: MyString
   description: MyText
   created_at: 2019-04-07 14:29:50

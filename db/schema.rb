@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_03_23_052213) do
 
-  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
     t.integer "score"
     t.datetime "created_at", null: false
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.index ["pre_id"], name: "index_diaries_on_pre_id"
   end
 
-  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.integer "category_num"
     t.timestamp "start_date"
@@ -43,11 +43,13 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "partner_id"
+    t.bigint "last_diary_id"
+    t.index ["last_diary_id"], name: "index_goals_on_last_diary_id"
     t.index ["partner_id"], name: "index_goals_on_partner_id"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname"
     t.string "password_digest"
     t.string "image_path"

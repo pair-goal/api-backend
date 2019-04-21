@@ -1,4 +1,4 @@
 require 'redis'
 
-Redis::Client::DEFAULTS[:host] = ENV['RAILS_HOST']
-$redis = Redis.new(host: ENV['RAILS_HOST'], port: ENV['RAILS_PORT'])
+Redis::Client::DEFAULTS[:host] = ENV['REDIS_HOST']
+$redis = Redis.new(host: ENV['REDIS_HOST'], port: ENV['REDIS_PORT'])

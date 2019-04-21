@@ -5,7 +5,8 @@ class DiaryTest < ActiveSupport::TestCase
     diary = Diary.new({
       goal_id: Goal.where(id: 1).first.id,
       comment: "success!",
-      score: 5
+      score: 5,
+      date: "20190421"
     })
 
     assert diary.save, "Failed to save"

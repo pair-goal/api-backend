@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   put '/goal/:id' => 'goal#update'
   delete '/goal/:id' => 'goal#destroy'
 
-  get '/diary/:id' => 'diary#show'
-  put '/diary/:id' => 'diary#update'
+  get '/goal/:goal_id/diary/:date' => 'diary#show'
+  put '/goal/:goal_id/diary/:date' => 'diary#update'
+
+  get '/conversation' => 'conversation#index'
+  get '/conversation/:id' => 'conversation#show'
+  post '/conversation/:id' => 'conversation#new'
+  get '/conversation/message/:id' => 'conversation#message'
 end
