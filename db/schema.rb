@@ -12,9 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_03_23_052213) do
 
-  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.text "comment"
     t.integer "score"
+    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "goal_id"
@@ -25,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.index ["pre_id"], name: "index_diaries_on_pre_id"
   end
 
-  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "title"
     t.integer "category_num"
     t.timestamp "start_date"
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.integer "four_score", default: 0
     t.integer "five_score", default: 0
     t.string "image_path"
+    t.string "partner_name"
+    t.string "conversation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "nickname"
     t.string "password_digest"
     t.string "image_path"
