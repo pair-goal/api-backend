@@ -7,7 +7,7 @@ one:
   title: MyString
   category_num: 1
   start_date: 2019-03-23 14:20:33
-  end_date: 2019-03-23 14:20:33
+  end_date: 2019-03-24 14:20:33
   is_doing: false
   average_score: 9.99
   zero_score: 1
@@ -18,6 +18,7 @@ one:
   five_score: 1
   image_path: MyString
   partner_id: 1
+  partner_name: noye
 
 two:
   id: 2
@@ -26,7 +27,7 @@ two:
   title: MyString
   category_num: 1
   start_date: 2019-03-23 14:20:33
-  end_date: 2019-03-23 14:20:33
+  end_date: 2019-03-24 14:20:33
   is_doing: false
   zero_score: 1
   one_score: 1
@@ -37,3 +38,4 @@ two:
   average_score: 9.99
   image_path: MyString
   partner_id: 1
+  partner_name: noye

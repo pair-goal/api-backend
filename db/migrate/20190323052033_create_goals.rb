@@ -12,8 +12,10 @@ class CreateGoals < ActiveRecord::Migration[5.2]
       t.integer :two_score, default: 0
       t.integer :three_score, default: 0
       t.integer :four_score, default: 0
-      t.integer :five_score, default:0
+      t.integer :five_score, default: 0
       t.string :image_path
+      t.string :partner_name
+      t.string :conversation_id
 
       t.timestamps
     end

@@ -7,7 +7,7 @@ class DiaryControllerTest < ActionDispatch::IntegrationTest
   test "test success get diary" do
     get "/goal/1/diary/#{@@today}", headers: { "Access-Token" => @@token }
 
-    assert_response 206
+    assert_response 200
   end
 
   test "test fail get diary - no token" do

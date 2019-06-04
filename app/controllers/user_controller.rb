@@ -6,7 +6,7 @@ class UserController < ApplicationController
     nickname, password = params.values_at :nickname, :password
 
     if(User.exists?(nickname: nickname))
-      head 405
+      head 400
       return
     end
 
@@ -15,10 +15,19 @@ class UserController < ApplicationController
       password: password
     })
 
+    data = {nickname: nickname}.to_json
+
+    sub = $redis.publish 'newUser', data
+    
+    if sub<=0
+      head 405
+      return
+    end
+
     if user.save
       head 201
     else
-      head 405
+      head 400
     end
   end
 
@@ -31,7 +40,7 @@ class UserController < ApplicationController
       @token = JsonWebToken.encode({user_id: user[:id]})
       render "new.json", status: 200
     else
-      head 405
+      head 400
     end
   end
 

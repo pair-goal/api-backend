@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
   create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
     t.integer "score"
+    t.string "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "goal_id"
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_03_23_052213) do
     t.integer "four_score", default: 0
     t.integer "five_score", default: 0
     t.string "image_path"
+    t.string "partner_name"
+    t.string "conversation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
