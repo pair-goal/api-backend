@@ -8,4 +8,5 @@ RUN bundle install --path ./gem
 
 EXPOSE 3000
 RUN bundle exec sidekiq -d
+RUN bundle exec redis_subscribe -d
 CMD RAILS_ENV=production rails s
