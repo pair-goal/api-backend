@@ -15,6 +15,15 @@ class UserController < ApplicationController
       password: password
     })
 
+    data = {nickname: nickname}.to_json
+
+    sub = $redis.publish 'newUser', data
+    
+    if sub<=0
+      head 405
+      return
+    end
+
     if user.save
       head 201
     else

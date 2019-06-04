@@ -5,24 +5,25 @@ class GoalController < ApplicationController
     doing, offset, limit = params.values_at :doing, :offset, :limit
     doing = doing == "true" ? true : false
 
-    @goals = Goal.where(is_doing: doing).offset(offset).limit(limit)
+    @goals = Goal.where({user_id: get_id_from_token, is_doing: doing}).offset(offset).limit(limit)
 
     render "index.json", status: 200
   end
 
   def create
-    #params.require(:goal).permit(:title, :category, :startDate, :endDate)
-    title, category, start_date, end_date = params["body"].values_at :title, :category, :startDate, :endDate
+    title, category, start_date, end_date = params.values_at :title, :category_num, :start_date, :end_date
 
-    goal = Goal.new({
+    goal = {
       title: title,
-      user_id: User.where(nickname: get_id_from_token).first,
+      user_id: User.where(id: get_id_from_token).first,
       category_num: category,
       start_date: Date.parse(start_date),
       end_date: Date.parse(end_date)
-    })
+    }
 
-    if goal.save
+    if saved_goal = Goal.create(goal)
+      $redis.select 3
+      $redis.lpush category, saved_goal.id
       head 201
     else
       head 405
@@ -51,6 +52,8 @@ class GoalController < ApplicationController
     else
       @goal.average_score = (one+two*2+three*3+four*4+five*5)/(end_date-start_date).to_i
     end
+
+    @goal[:parter_nickname] = User.where(id: @goal.partner_id).first.nickname
 
     render "show.json", status: 200
   end

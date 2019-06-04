@@ -9,7 +9,7 @@ class DiaryController < ApplicationController
       render "show.json", status: 200
     else
       goal = Goal.where(id: goal_id).first
-      render json: goal, status: 206
+      render json: goal, status: 200
     end
   end
 
@@ -17,6 +17,11 @@ class DiaryController < ApplicationController
     goal_id, date, score, comment = params.values_at :goal_id, :date, :score, :comment
     date = Date.parse(date)
     today = Date.today.strftime("%Y%m%d")
+
+    nickname = User.where(id: get_id_from_token).first.nickname
+    conversation_id = Goal.where(id: goal_id).first.conversation_id
+    data = {id: conversation_id, comment: comment, score: score, nickname: nickname}.to_json
+    $redis.publish 'updateDiary', data
     
     unless(date==Date.today)
       head 405
@@ -26,6 +31,9 @@ class DiaryController < ApplicationController
     if(Diary.exists?(goal_id: goal_id, date: today))
       diary = Diary.where(goal_id: goal_id, date: today).first
       goal = Goal.where(id: diary.goal_id).first
+
+      puts "diary--------------------"
+      puts score
 
       pre_score = diary.score
 
@@ -44,20 +52,22 @@ class DiaryController < ApplicationController
       goal = Goal.where(id: goal_id).first
       last_diary = Diary.where(id: goal.last_diary_id).first
 
-      unless last_diary
-        head 201
-        return
-      end
-
       diary = {
         goal_id: goal_id,
-        pre_id: last_diary.id,
+        pre_id: last_diary.nil? ? "" : last_diary.id,
         score: score,
         comment: comment,
         date: today
       }
 
       if(saved_diary = Diary.create(diary))
+        goal.update(last_diary_id: saved_diary.id)
+
+        if last_diary.nil?
+          head 201
+          return
+        end
+
         if(last_diary.update({next_id: saved_diary.id}))
           head 201
         else

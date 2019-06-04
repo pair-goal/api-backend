@@ -12,12 +12,12 @@ class MatchingWorker
       first = Goal.where(id: $redis.rpop(category)).first
       second = Goal.where(id: $redis.rpop(category)).first
 
-      first.update(partner_id: second.user_id)
-      second.update(partner_id: first.user_id)
+      first.update(partner_id: second.user_id, partner_name: User.where(id: second.user_id).first.nickname)
+      second.update(partner_id: first.user_id, partner_name: User.where(id: first.user_id).first.nickname)
 
       conversation = [
-        {nickname: first.user_id.nickname, title: first.title},
-        {nickname: second.user_id.nickname, title: second.title}
+        {nickname: first.user_id.nickname, title: first.title, id: first.id},
+        {nickname: second.user_id.nickname, title: second.title, id: second.id}
       ].to_json
 
       $redis.publish('newConversation', conversation)
