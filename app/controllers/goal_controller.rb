@@ -53,7 +53,7 @@ class GoalController < ApplicationController
       @goal.average_score = (one+two*2+three*3+four*4+five*5)/(end_date-start_date).to_i
     end
 
-    @goal[:parter_nickname] = User.where(id: @goal.partner_id).first.nickname
+    @goal[:partner_name] = User.where(id: @goal.partner_id).first.nickname
 
     render "show.json", status: 200
   end

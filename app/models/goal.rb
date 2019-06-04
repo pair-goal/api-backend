@@ -11,6 +11,4 @@ class Goal < ApplicationRecord
     presence: true
   validates :end_date,
     presence: true
-  validates :partner_name,
-    presence: true
 end

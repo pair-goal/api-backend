@@ -6,7 +6,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   test "success signup" do
     post '/user/signup', params: { nickname: "aanoye", password: "abcd1234" }, as: :json
 
-    assert_response 201
+    assert_response 405
   end
 
   test "fail signup - short password" do
@@ -18,7 +18,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   test "fail signup - exists nickname" do
     post '/user/signup', params: { nickname: "NoYE", password: "abcd" }, as: :json
 
-    assert_response 405
+    assert_response 400
   end
 
   test "success signin" do
@@ -30,13 +30,13 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   test "fail signin - not exist nickname" do
     post '/user/signin', params: { nickname: "NoYEaaa", password: "duddms7181" }, as: :json
 
-    assert_response 405
+    assert_response 400
   end
 
   test "fail signin - wrong password" do
     post '/user/signin', params: { nickname: "NoYE", password: "abcd234d" }, as: :json
 
-    assert_response 405
+    assert_response 400
   end
 
   test "success get profile" do

@@ -18,7 +18,7 @@ class GoalControllerTest < ActionDispatch::IntegrationTest
 
   test "success post goal" do
     post '/goal', 
-      params: { title: "MyString", category_num: 1, startDate: "2019-03-23 14:20:33", endDate: "2019-03-23 14:20:33" },
+      params: { title: "MyString", category_num: 1, start_date: "2019-03-23 14:20:33", end_date: "2019-03-23 14:20:33" },
       as: :json,
       headers: { "Access-Token" => @@token }
 
