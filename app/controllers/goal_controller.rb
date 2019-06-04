@@ -11,20 +11,48 @@ class GoalController < ApplicationController
   end
 
   def create
-    title, category, start_date, end_date = params.values_at :title, :category_num, :start_date, :end_date
+    title, category, start_date, end_date, image_path = params.values_at :title, :category_num, :start_date, :end_date, :image_path
 
-    goal = {
+    goal = Goal.new({
       title: title,
-      user_id: User.where(id: get_id_from_token).first,
+      user_id: get_id_from_token,
       category_num: category,
       start_date: Date.parse(start_date),
       end_date: Date.parse(end_date)
-    }
+    })
 
-    if saved_goal = Goal.create(goal)
+    if goal.save!
       $redis.select 3
-      $redis.lpush category, saved_goal.id
-      head 201
+      $redis.lpush category, goal.id
+
+      url  = ''
+
+      if image_path
+        require 'aws-sdk-s3'
+
+        s3Client = Aws::S3::Client.new(
+          region: ENV['AWS_REGION'],
+          access_key_id: ENV['ACCESS_KEY'],
+          secret_access_key: ENV['SECRET_ACCESS_KEY']
+        )
+
+        signer = Aws::S3::Presigner.new(client: s3Client)
+        key = "goal/#{goal.id}.jpg"
+
+        url = signer.presigned_url(
+          :put_object,
+          bucket: 'pair-goal-image',
+          key: key,
+          expires_in: 60*10
+        )
+
+        puts "-------------"
+        puts key
+
+        goal.update(image_path: key)
+      end
+      
+      render status: 201, json: {url: url}
     else
       head 405
     end
