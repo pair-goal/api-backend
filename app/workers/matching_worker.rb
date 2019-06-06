@@ -16,8 +16,8 @@ class MatchingWorker
       second.update(partner_id: first.user_id, partner_name: User.where(id: first.user_id).first.nickname)
 
       conversation = [
-        {nickname: first.user_id.nickname, title: first.title, id: first.id},
-        {nickname: second.user_id.nickname, title: second.title, id: second.id}
+        {nickname: User.where(id: first.user_id).first.nickname, title: first.title, id: first.id},
+        {nickname: User.where(id: second.user_id).first.nickname, title: second.title, id: second.id}
       ].to_json
 
       $redis.publish('newConversation', conversation)
