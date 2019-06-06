@@ -84,7 +84,7 @@ class GoalController < ApplicationController
     end
 
     user = User.where(id: @goal.partner_id).first
-    @goal[:partner_name] = user ? user.partner_name : nil
+    @goal[:partner_name] = user ? @goal.partner_name : nil
 
     @url = ''
 
