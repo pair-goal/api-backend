@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+# Bundle aws-sdk-rails
+gem 'aws-sdk-s3'
+
 # Bundle dotenv
 gem 'dotenv-rails'
 

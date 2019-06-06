@@ -5,11 +5,23 @@ class DiaryController < ApplicationController
     goal_id, date = params.values_at :goal_id, :date
     @diary = Diary.where(goal_id: goal_id, date: date).first
 
+    @goal = Goal.where(id: goal_id).first
+      
+      if @goal.image_path
+        @goal.image_path = $signer.presigned_url(
+          :get_object,
+          bucket: 'pair-goal-image',
+          key: @goal.image_path,
+          expires_in: 60*10
+        )
+      else
+        @goal.image_path = ' '
+      end
+
     if(@diary)
       render "show.json", status: 200
     else
-      goal = Goal.where(id: goal_id).first
-      render json: goal, status: 200
+      render json: @goal, status: 200
     end
   end
 
