@@ -63,6 +63,7 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
+    bcrypt (3.1.12)
     bcrypt (3.1.12-x64-mingw32)
     bindex (0.5.0)
     bootsnap (1.4.2)
@@ -92,7 +93,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
-    crass (1.0.4)
+    crass (1.0.5)
     dotenv (2.7.1)
     dotenv-rails (2.7.1)
       dotenv (= 2.7.1)
@@ -102,6 +103,7 @@ GEM
     et-orbi (1.1.8)
       tzinfo
     execjs (2.7.0)
+    ffi (1.10.0)
     ffi (1.10.0-x64-mingw32)
     fugit (1.1.10)
       et-orbi (~> 1.1, >= 1.1.8)
@@ -116,7 +118,7 @@ GEM
       multi_json (>= 1.2)
     jmespath (1.4.0)
     jwt (2.1.0)
-    loofah (2.2.3)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -130,11 +132,15 @@ GEM
     minitest (5.11.3)
     mongo (2.8.0)
       bson (>= 4.4.2, < 5.0.0)
+    msgpack (1.2.9)
     msgpack (1.2.9-x64-mingw32)
     multi_json (1.13.1)
+    mysql2 (0.5.2)
     mysql2 (0.5.2-x64-mingw32)
     nio4r (2.3.1)
-    nokogiri (1.10.1-x64-mingw32)
+    nokogiri (1.10.5)
+      mini_portile2 (~> 2.4.0)
+    nokogiri (1.10.5-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     public_suffix (3.0.3)
     puma (3.12.1)
@@ -229,6 +235,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
